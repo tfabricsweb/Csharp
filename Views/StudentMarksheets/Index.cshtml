@@ -9,61 +9,165 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table  id="markSheetGrid" class="display">
+    <thead></thead>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.StudentName)
+            StudentName
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TamilMark)
+            TamilMark
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EnglishMark)
+            EnglishMark
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MathsMark)
+            MathsMark
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ScienceMark)
+            ScienceMark
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SocialMark)
+            SocialMark
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TotalMark)
+            TotalMark
         </th>
-        <th></th>
+        <th>
+            Action
+        </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.StudentName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TamilMark)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EnglishMark)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MathsMark)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ScienceMark)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SocialMark)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalMark)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.StudentId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.StudentId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.StudentId })
-        </td>
-    </tr>
-}
+    <tfoot>
+        <tr>
+            <th>
+                StudentName
+            </th>
+            <th>
+                TamilMark
+            </th>
+            <th>
+                EnglishMark
+            </th>
+            <th>
+                MathsMark
+            </th>
+            <th>
+                ScienceMark
+            </th>
+            <th>
+                SocialMark
+            </th>
+            <th>
+                TotalMark
+            </th>
+            <th>
+                Action
+            </th>
+
+        </tr>
+    </tfoot>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TamilMark)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EnglishMark)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MathsMark)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ScienceMark)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SocialMark)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalMark)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.StudentId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.StudentId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.StudentId })
+                </td>
+            </tr>
+        }
+    </tbody>
 
 </table>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#markSheetGrid tfoot tr').clone(true).appendTo('#markSheetGrid tfoot');
+        $('#markSheetGrid tfoot tr:eq(1) th').each(function (i) {
+            var title = $(this).text();
+            $(this).html('<input type = "text" />');
+            $('input', this).on('keyup change', function () {
+                    if (table.column(i).search() !== this.value) {
+                        table
+                            .column(i)
+                            .search(this.value)
+                            .draw();
+                    }
+                });
+            $('input').each(function () {
+                $(this).width($(this).parent().width() - 20);
+            });
+        });
+
+        var table = $('#sharesGrid').DataTable({
+
+            // Enable the searching
+            // of the DataTable
+            dom: 'Blfrtip',
+            buttons: [
+                {
+                    extend: 'excel',
+                    title: 'excel',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'csv',
+                    title: 'csv',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'pdf',
+                    title: 'pdf',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'print',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'colvis',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                }
+            ],
+            columnDefs: [{
+                targets: -1,
+                visible: false
+            }],
+            "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
+
+        });
+    });
+</script>
