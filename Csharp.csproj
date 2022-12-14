@@ -130,6 +130,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Marksheet1Controller.cs" />
     <Compile Include="Controllers\StudentMarksheetsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -212,6 +213,11 @@
     <Content Include="Views\StudentMarksheets\Details.cshtml" />
     <Content Include="Views\StudentMarksheets\Edit.cshtml" />
     <Content Include="Views\StudentMarksheets\Index.cshtml" />
+    <Content Include="Views\Marksheet1\Create.cshtml" />
+    <Content Include="Views\Marksheet1\Delete.cshtml" />
+    <Content Include="Views\Marksheet1\Details.cshtml" />
+    <Content Include="Views\Marksheet1\Edit.cshtml" />
+    <Content Include="Views\Marksheet1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
