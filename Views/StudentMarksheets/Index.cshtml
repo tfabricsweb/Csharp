@@ -10,34 +10,34 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <table  id="markSheetGrid" class="display">
-    <thead></thead>
-    <tr>
-        <th>
-            StudentName
-        </th>
-        <th>
-            TamilMark
-        </th>
-        <th>
-            EnglishMark
-        </th>
-        <th>
-            MathsMark
-        </th>
-        <th>
-            ScienceMark
-        </th>
-        <th>
-            SocialMark
-        </th>
-        <th>
-            TotalMark
-        </th>
-        <th>
-            Action
-        </th>
-    </tr>
-
+    <thead>
+        <tr>
+            <th>
+                StudentName
+            </th>
+            <th>
+                TamilMark
+            </th>
+            <th>
+                EnglishMark
+            </th>
+            <th>
+                MathsMark
+            </th>
+            <th>
+                ScienceMark
+            </th>
+            <th>
+                SocialMark
+            </th>
+            <th>
+                TotalMark
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
     <tfoot>
         <tr>
             <th>
@@ -68,30 +68,31 @@
         </tr>
     </tfoot>
     <tbody>
+       
 
         @foreach (var item in Model)
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.StudentName)
+                    @item.StudentName
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TamilMark)
+                    @item.TamilMark
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.EnglishMark)
+                    @item.EnglishMark
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.MathsMark)
+                    @item.MathsMark
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ScienceMark)
+                    @item.ScienceMark
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.SocialMark)
+                    @item.SocialMark
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TotalMark)
+                    @item.TotalMark
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.StudentId }) |
@@ -122,7 +123,7 @@
             });
         });
 
-        var table = $('#sharesGrid').DataTable({
+        var table = $('#markSheetGrid').DataTable({
 
             // Enable the searching
             // of the DataTable
