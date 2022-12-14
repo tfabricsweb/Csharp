@@ -39,6 +39,7 @@ namespace Csharp.Controllers
         public ActionResult Create()
         {
             return View();
+
         }
 
         // POST: StudentMarksheets1/Create
