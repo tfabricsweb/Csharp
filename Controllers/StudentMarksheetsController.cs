@@ -20,7 +20,6 @@ namespace Csharp.Controllers
             return View(db.StudentMarksheets.ToList());
         }
 
-
         // GET: StudentMarksheets/Details/5
         public ActionResult Details(int? id)
         {
