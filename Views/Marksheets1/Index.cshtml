@@ -9,61 +9,99 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            StudentName
-        </th>
-        <th>
-            TamilMark
-        </th>
-        <th>
-            EnglishMark
-        </th>
-        <th>
-            MathsMark
-        </th>
-        <th>
-            ScienceMark
-        </th>
-        <th>
-            SocialMark
-        </th>
-        <th>
-            TotalMark
-        </th>
-        <th></th>
-    </tr>
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.StudentName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TamilMark)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EnglishMark)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MathsMark)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ScienceMark)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SocialMark)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalMark)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.StudentId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.StudentId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.StudentId })
-        </td>
-    </tr>
-}
+<table id="markSheetGrid" class="display">
+    <thead>
+        <tr>
+            <th>
+                StudentName
+            </th>
+            <th>
+                TamilMark
+            </th>
+            <th>
+                EnglishMark
+            </th>
+            <th>
+                MathsMark
+            </th>
+            <th>
+                ScienceMark
+            </th>
+            <th>
+                SocialMark
+            </th>
+            <th>
+                TotalMark
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>
+                StudentName
+            </th>
+            <th>
+                TamilMark
+            </th>
+            <th>
+                EnglishMark
+            </th>
+            <th>
+                MathsMark
+            </th>
+            <th>
+                ScienceMark
+            </th>
+            <th>
+                SocialMark
+            </th>
+            <th>
+                TotalMark
+            </th>
+            <th>
+                Action
+            </th>
+
+        </tr>
+    </tfoot>
+    <tbody>
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.StudentName
+                </td>
+                <td>
+                    @item.TamilMark
+                </td>
+                <td>
+                    @item.EnglishMark
+                </td>
+                <td>
+                    @item.MathsMark
+                </td>
+                <td>
+                    @item.ScienceMark
+                </td>
+                <td>
+                    @item.SocialMark
+                </td>
+                <td>
+                    @item.TotalMark
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.StudentId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.StudentId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.StudentId })
+                </td>
+            </tr>
+        }
+    </tbody>
 
 </table>
 <script type="text/javascript">
@@ -133,4 +171,5 @@
 
         });
     });
+
 </script>

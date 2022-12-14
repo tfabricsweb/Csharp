@@ -10,17 +10,17 @@ using Csharp;
 
 namespace Csharp.Controllers
 {
-    public class Marksheet1Controller : Controller
+    public class Marksheets1Controller : Controller
     {
         private csharpEntities db = new csharpEntities();
 
-        // GET: Marksheet1
+        // GET: Marksheets1
         public ActionResult Index()
         {
             return View(db.StudentMarksheets.ToList());
         }
 
-        // GET: Marksheet1/Details/5
+        // GET: Marksheets1/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,13 +35,13 @@ namespace Csharp.Controllers
             return View(studentMarksheet);
         }
 
-        // GET: Marksheet1/Create
+        // GET: Marksheets1/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Marksheet1/Create
+        // POST: Marksheets1/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -58,7 +58,7 @@ namespace Csharp.Controllers
             return View(studentMarksheet);
         }
 
-        // GET: Marksheet1/Edit/5
+        // GET: Marksheets1/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -73,7 +73,7 @@ namespace Csharp.Controllers
             return View(studentMarksheet);
         }
 
-        // POST: Marksheet1/Edit/5
+        // POST: Marksheets1/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -89,7 +89,7 @@ namespace Csharp.Controllers
             return View(studentMarksheet);
         }
 
-        // GET: Marksheet1/Delete/5
+        // GET: Marksheets1/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -104,7 +104,7 @@ namespace Csharp.Controllers
             return View(studentMarksheet);
         }
 
-        // POST: Marksheet1/Delete/5
+        // POST: Marksheets1/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
