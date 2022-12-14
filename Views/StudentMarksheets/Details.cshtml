@@ -1,0 +1,74 @@
+﻿@model Csharp.StudentMarksheet
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>StudentMarksheet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TamilMark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TamilMark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnglishMark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnglishMark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MathsMark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MathsMark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScienceMark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScienceMark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SocialMark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SocialMark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalMark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalMark)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.StudentId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
